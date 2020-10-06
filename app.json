@@ -2,6 +2,9 @@
     "name": "Testing Heroku apps using Loadmill",
     "description": "Run simple API and load tests on a simple voting up deployed to Heroku",
     "repository": "https://github.com/loadmill/heroku-button-demo",
-    "logo": "https://raw.githubusercontent.com/loadmill/heroku-button-demo/master/public/dog.png",
-    "keywords": ["Loadmill", "Testing", "API", "Load"]
+    "logo": "https://raw.githubusercontent.com/loadmill/heroku-button-demo/master/public/pinmill.png",
+    "keywords": ["Loadmill", "Testing", "API", "Load"],
+    "addons": [
+        "loadmill"
+    ]
   }
