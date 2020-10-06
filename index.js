@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
 
-const port = process.argv[2] || 8000;
+const port = process.env.PORT || process.argv[2] || 8000;
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
