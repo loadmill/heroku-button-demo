@@ -17,6 +17,7 @@ Click here to deploy
 8. Go back to your demo app, and watch as votes are comming in.
 9. You are now required to adopt the animal that won the vote 🤷‍♂️
 
+
 ![](public/addon.png)
 ![](public/test.png)
 ![](public/load.png)
