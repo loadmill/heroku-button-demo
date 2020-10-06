@@ -12,10 +12,13 @@ Click here to deploy
 3. Open the Heroku dashboad by clicking the button at the top right.
 4. From the Heroku dashbard, click the the "Loadmill API Testing" add-on to open the Loadmill dashboard.
 ![](public/addon.png)
+
 5. Go to the LOAD TESTS section and click [NEW TEST](https://www.loadmill.com/app/tester).
 6. Paste this URL into the black URL input line `<Your App URL>/vote/${__pick_random('dogs','cats')}`
 ![](public/test.png)
+
 7. Click RUN TEST and run the test with up to 50 users.
 ![](public/load.png)
+
 8. Go back to your demo app, and watch as votes are comming in.
 9. You are now required to adopt whichever won the vote 🤷‍♂️
