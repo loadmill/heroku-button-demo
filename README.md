@@ -15,7 +15,7 @@ Click here to deploy
 6. Paste this URL into the black URL input line `<Your App URL>/vote/${__pick_random('dogs','cats')}`
 7. Click RUN TEST and run the test with up to 50 users.
 8. Go back to your demo app, and watch as votes are comming in.
-9. You are now required to adopt whichever won the vote 🤷‍♂️
+9. You are now required to adopt the animal that won the vote 🤷‍♂️
 
 ![](public/addon.png)
 ![](public/test.png)
