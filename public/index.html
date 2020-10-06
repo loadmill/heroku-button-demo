@@ -68,7 +68,7 @@
         voteCats = () => fetch('/vote/cats')
         voteDogs = () => fetch('/vote/dogs')
 
-        const socket = new WebSocket(`ws://${window.location.host}`);
+        const socket = new WebSocket(`wss://${window.location.host}`);
         socket.addEventListener('message', event => {
             const { dogs, cats } = JSON.parse(event.data);
             document.getElementById("catVotes").innerHTML = `votes: ${cats}`;
