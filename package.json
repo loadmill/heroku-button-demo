@@ -20,6 +20,7 @@
   "dependencies": {
     "@loadmill/node-recorder": "^0.2.0",
     "express": "^4.17.1",
+    "tslib": "^2.0.3",
     "ws": "^7.1.2"
   },
   "engines": {
