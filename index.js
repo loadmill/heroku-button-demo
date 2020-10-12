@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
+const { expressRecorder } = require('@loadmill/node-recorder');
 
 const port = process.env.PORT || process.argv[2] || 8000;
 const app = express();
@@ -8,7 +9,11 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 app.use(express.static('public'));
-
+app.use(expressRecorder({ 
+    loadmillCode: process.env.LOADMILL_CODE || '3d1bae8a-2b80-4817-ab77-334b1e473c9d',
+    notSecure: true, 
+    cookieExpiration: 10 * 60 * 1000,
+ }));
 const connections = [];
 const state = { cats: 0, dogs: 0 };
 
