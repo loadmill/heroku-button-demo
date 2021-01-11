@@ -10,9 +10,10 @@ const wss = new WebSocket.Server({ server });
 
 app.use(express.static('public'));
 app.use(expressRecorder({ 
-    loadmillCode: process.env.LOADMILL_CODE || '3d1bae8a-2b80-4817-ab77-334b1e473c9d',
+    loadmillCode: process.env.LOADMILL_CODE || '9c18750e-5978-4540-b953-e339c07f5e99',
     notSecure: true, 
     cookieExpiration: 10 * 60 * 1000,
+    basePath: 'https://loadmill-node-recorder-demo.herokuapp.com'
  }));
 const connections = [];
 const state = { cats: 0, dogs: 0 };
