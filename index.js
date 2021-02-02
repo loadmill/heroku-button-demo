@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
+const { expressRecorder } = require('@loadmill/node-recorder');
 
 const port = process.env.PORT || process.argv[2] || 8000;
 const app = express();
@@ -8,7 +9,12 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 app.use(express.static('public'));
-
+app.use(expressRecorder({ 
+    loadmillCode: process.env.LOADMILL_CODE || '9c18750e-5978-4540-b953-e339c07f5e99',
+    notSecure: true, 
+    cookieExpiration: 10 * 60 * 1000,
+    basePath: 'https://loadmill-node-recorder-demo.herokuapp.com'
+ }));
 const connections = [];
 const state = { cats: 0, dogs: 0 };
 
