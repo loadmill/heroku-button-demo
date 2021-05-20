@@ -30,3 +30,9 @@ Click here to deploy
 ---
 
 ![](public/load.png)
+
+## Zeet.co 
+The voting app can also be deployed using Zeet.co (But you will have to created a loadmill account manually)
+
+[![Deploy](https://deploy.zeet.co/heroku-button-demo.svg)](https://deploy.zeet.co/?url=https://github.com/loadmill/heroku-button-demo)
+
