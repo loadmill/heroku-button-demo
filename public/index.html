@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Cats vs Dogs</title>
-
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <style type="text/css">
         body {
             background-color: #f0f0f2;
@@ -21,7 +17,6 @@
             font-size: 1rem;
             font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
-
         .main {
             max-width: 1000px;
             margin: 2em auto;
@@ -29,11 +24,9 @@
             background-color: #fff;
             border-radius: 1em;
         }
-
         .voteButton {
             font-size: 32px;
         }
-
         .linkButton {
             border: none;
             color: white;
@@ -45,30 +38,63 @@
             margin: 4px 2px;
             border-radius: 8px;
         }
-
         .herokuButton {
             background-color: #79589F;
         }
-
         .loadmillButton {
             background-color: #3f51b5;
         }
-
         h1,
         img,
         button {
             margin: 12px;
         }
+        .header-btn-section,
+        .btn-section,
+        .cat-dog-container,
+        .vote-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cat-dog-container {
+            justify-content: space-around;
+        }
+        .cat-dog-container img {
+            width: 400px;
+            height: 300px;
+        }
+        @media screen and (max-width: 850px) {
+            .main {
+                padding: 16px;
+                margin: 16px auto;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .linkButton {
+                padding: 8px 12px;
+            }
+            .header-btn-section,
+            .cat-dog-container {
+                flex-direction: column;
+            }
+            .cat-dog-container img {
+                width: 100%;
+                margin: 12px 0;
+                height: auto;
+            }
+            .voteButton {
+                font-size: 20px;
+            }
+        }
     </style>
-
 </head>
-
 <body id="body">
-
     <div class="main">
-        <div style="display: flex; justify-content:space-between">
+        <div class="header-btn-section">
             <h1>Cats vs. Dogs!</h1>
-            <div>
+            <div class="btn-section">
                 <button class="linkButton herokuButton"
                     onclick="window.open('https://dashboard.heroku.com/apps/' + window.location.hostname.split('.')[0] ,'_blank')">
                     Heroku Dashboard
@@ -79,29 +105,28 @@
                 </button>
             </div>
         </div>
-
-        <div style="display: flex; justify-content:space-around">
+        <div class="cat-dog-container">
             <div>
-                <img src="cat.jpg" height="300px" width="400px">
-                <h1 id="catVotes">votes:</h1>
-                <button class="voteButton" onclick="voteCats()">vote</button>
+                <img src="cat.jpg">
+                <div class="vote-container">
+                    <h1 id="catVotes">votes:</h1>
+                    <button class="voteButton" onclick="voteCats()">vote</button>
+                </div>
             </div>
-
             <div>
-                <img src="dog.jpg" height="300px" width="400px">
-                <h1 id="dogVotes">votes:</h1>
-                <button class="voteButton" onclick="voteDogs()">vote</button>
+                <img src="dog.jpg">
+                <div class="vote-container">
+                    <h1 id="dogVotes">votes:</h1>
+                    <button class="voteButton" onclick="voteDogs()">vote</button>
+                </div>
             </div>
         </div>
     </div>
-
     <script>
         document.getElementById("body").style.backgroundColor =
             "#" + ((1 << 24) * Math.random() | 0).toString(16)
-
         voteCats = () => fetch('/vote/cats')
         voteDogs = () => fetch('/vote/dogs')
-
         const socket = new WebSocket(`wss://${window.location.host}`);
         socket.addEventListener('message', event => {
             const { dogs, cats } = JSON.parse(event.data);
@@ -109,7 +134,5 @@
             document.getElementById("dogVotes").innerHTML = `votes: ${dogs}`;
         });
     </script>
-
 </body>
-
 </html>
