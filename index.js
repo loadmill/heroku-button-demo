@@ -16,17 +16,17 @@ app.use(expressRecorder({
     basePath: 'https://loadmill-node-recorder-demo.herokuapp.com'
  }));
 const connections = [];
-const state = { cats: 0, dogs: 0 };
+const state = { AMG: 0, EQC: 0 };
 
-app.get('/vote/cats', (_req, res) => {
+app.get('/vote/AMG', (_req, res) => {
     console.log('A vote for 🐱');
-    addVotes({ cats: 1 });
+    addVotes({ AMG: 1 });
     res.sendStatus(200);
 });
 
-app.get('/vote/dogs', (_req, res) => {
+app.get('/vote/EQC', (_req, res) => {
     console.log('A vote for 🐶');
-    addVotes({ dogs: 1 });
+    addVotes({ EQC: 1 });
     res.sendStatus(200);
 });
 
@@ -35,9 +35,9 @@ wss.on('connection', (ws) => {
     ws.send(JSON.stringify(state));
 });
 
-const addVotes = ({ cats = 0, dogs = 0 }) => {
-    state.cats = state.cats + cats;
-    state.dogs = state.dogs + dogs;
+const addVotes = ({ AMG = 0, EQC = 0 }) => {
+    state.AMG = state.AMG + AMG;
+    state.EQC = state.EQC + EQC;
     connections.forEach(ws => ws.send(JSON.stringify(state)));
 };
 
